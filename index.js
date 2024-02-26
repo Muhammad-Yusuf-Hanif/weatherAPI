@@ -64,6 +64,9 @@ searchBar.addEventListener("submit", function (e) {
 	fetch(fullAPIUrl)
 		.then(function convertToJson(response) {
 			if (response.status == "404") {
+        if (weatherDisplay.style.display = "block"){
+          weatherDisplay.style.display = "none"
+        }
         responseErrorMsg.style.display = "block"
 				console.log("response.status code", response.status);
 			} else {
