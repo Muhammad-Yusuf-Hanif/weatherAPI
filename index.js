@@ -1,6 +1,6 @@
 const searchBar = document.getElementById("searchBar");
 const inputText = document.getElementById("inputText");
-const responseErrorMsg = document.querySelector(".responseErrorMsg")
+const responseErrorMsg = document.querySelector(".responseErrorMsg");
 const weatherDisplay = document.querySelector(".weatherDisplay");
 const weatherIcon = document.getElementById("weatherIcon");
 const temp = document.getElementById("temp");
@@ -62,19 +62,16 @@ searchBar.addEventListener("submit", function (e) {
 	console.log("fullAPIUrl", fullAPIUrl);
 
 	fetch(fullAPIUrl)
-		.then(function convertToJson(response) {
-			if (response.status == "404") {
-        if (weatherDisplay.style.display = "block"){
-          weatherDisplay.style.display = "none"
-        }
-        responseErrorMsg.style.display = "block"
-				console.log("response.status code", response.status);
+		.then((response) => {
+			if (response.status === 404) {
+				weatherDisplay.style.display = "none";
+				responseErrorMsg.style.display = "block";
+				throw new Error("City not found");
 			} else {
-        if (responseErrorMsg.style.display = "block") {
-          responseErrorMsg.style.display = "None"
-        }
-        return response.json();
+				responseErrorMsg.style.display = "none";
+				return response.json();
 			}
 		})
-		.then(getWeather);
+		.then(getWeather)
+		.catch((error) => console.error("Fetch error:", error));
 });
