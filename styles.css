@@ -2,10 +2,14 @@
 	font-family: roboto, arial;
 }
 
+html {
+	height: 100%;
+}
+
 body {
 	margin: 0;
 	width: 100%;
-	height: 100vh;
+	min-height: 100%;
 	background-image: linear-gradient(
 			rgba(157, 146, 72, 0.6),
 			rgba(38, 13, 13, 0.75)
@@ -13,20 +17,25 @@ body {
 		url(assets/backgroundimg.jpg);
 	background-position: center;
 	background-size: cover;
-	display: flex;
-	justify-content: center;
+	display: grid;
 	align-items: center;
+}
+
+.weatherDisplay {
+	display: none;
 }
 
 .weatherCard {
 	background-color: rgba(84, 90, 61, 0.442);
-	width: 40%;
+	width: 35%;
 	display: flex;
 	flex-direction: column;
 	text-align: center;
+	justify-self: center;
 	color: white;
-	padding: 15px;
+	padding: 10px;
 	border-radius: 30px;
+	transform: translateY(-60px);
 }
 
 .searchContainer {
@@ -41,12 +50,12 @@ body {
 .searchBar {
 	width: 100%;
 	max-width: 600px;
-	background-color: rgba(2, 2, 2, 0.2);
+	background-color: rgba(2, 2, 2, 0.2) !important;
 	display: flex;
 	align-items: center;
 	border-radius: 60px;
 	padding-right: 10px;
-	backdrop-filter: blur(4px) saturate(150%);
+	backdrop-filter: blur(4px) saturate(150%) !important;
 }
 
 .searchBar input {
@@ -80,33 +89,103 @@ body {
 }
 
 .weatherIcon {
-	width: 150px;
+	width: 115px;
 	margin-top: 5%;
 }
 
 .weatherDisplay h1 {
-	font-size: 45px;
+	font-size: 35px;
 	font-weight: 500;
 	margin: 0;
+	margin-top: 3px;
 }
 
 .weatherDisplay h2 {
-	font-size: 25px;
+	font-size: 18px;
 	font-weight: 400;
-	margin-top: -5px;
+	margin-top: 3px;
 }
 
 .weatherDetails {
 	width: 100%;
 	display: flex;
-  align-items: center;
+	align-items: center;
 	justify-content: space-between;
 	padding: 0;
 }
 
 .humidityCol img {
-	width: 100px;
+	width: 75px;
+	transform: translateX(10px);
 }
+
+.humidityCol p {
+	margin-top: 3px;
+	margin-bottom: 0;
+	transform: translateX(10px);
+}
+
 .windCol img {
-	width: 100px;
+	width: 75px;
+	transform: translateX(-10px);
+}
+
+.windCol p {
+	margin-top: 3px;
+	margin-bottom: 0;
+	transform: translateX(-10px);
+}
+
+@media screen and (max-width: 799px) {
+	body {
+		margin: 0;
+		width: 100%;
+		background-image: linear-gradient(
+				rgba(157, 146, 72, 0.6),
+				rgba(38, 13, 13, 0.75)
+			),
+			url(assets/MobileBackgroundImg.jpg);
+		background-position: center;
+		background-size: cover;
+	}
+
+	.weatherCard {
+		width: 80%;
+	}
+
+	.searchContainer {
+		width: 100%;
+		padding: 0 10px;
+	}
+
+	.searchBar {
+		max-width: 100%;
+	}
+
+	.searchBar button img {
+		margin-top: 10%;
+	}
+
+	.weatherIcon {
+		width: 90px;
+		margin-top: 5%;
+	}
+
+	.weatherDisplay h1 {
+		font-size: 28px;
+	}
+
+	.weatherDisplay h2 {
+		font-size: 16px;
+	}
+
+	.humidityCol img,
+	.windCol img {
+		width: 60px;
+	}
+
+	.humidityCol p,
+	.windCol p {
+		margin-top: 0;
+	}
 }

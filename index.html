@@ -10,31 +10,31 @@
 	<body>
 		<div class="weatherCard">
 			<div class="searchContainer">
-				<form action="" id="searchBar" class="searchBar">
+				<form autocomplete="off" id="searchBar" class="searchBar">
 					<input id="inputText"
 						type="text"
 						placeholder="Search Country/City Here"
 						spellcheck="false"
 					/>
 					<button class="searchBtn">
-						<img src="assets/searchimg100.png" />
+						<img src="assets/searchimg50.png" />
 					</button>
 				</form>
 			</div>
 			<div class="weatherDisplay">
 				<div class="weatherIconDisplay">
-					<img class="weatherIcon" src="assets/weather_icons/sun/sunny.png" />
+					<img class="weatherIcon" id="weatherIcon"/>
 					<h1 class="temp" id="temp"></h1>
 					<h2 class="cityName" id="location"></h2>
 				</div>
 				<div class="weatherDetails">
 					<div class="humidityCol">
-						<img src="assets/weather_icons/cloud/cloudy.png" />
-						<p class="humidity">66%</p>
+						<img id="humidityIcon" src="" />
+						<p class="humidity" id="humidity"></p>
 					</div>
 					<div class="windCol">
-						<img src="assets/weather_icons/moon/2.png" />
-						<p class="windSpeed">8 MPH</p>
+						<img id="windSpeedIcon" src="" />
+						<p class="windSpeed" id="windSpeed"></p>
 					</div>
 				</div>
 			</div>
