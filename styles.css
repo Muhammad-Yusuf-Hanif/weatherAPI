@@ -21,12 +21,8 @@ body {
 	align-items: center;
 }
 
-.weatherDisplay {
-	display: none;
-}
-
 .weatherCard {
-	background-color: rgba(84, 90, 61, 0.442);
+  background-color: rgba(84, 90, 61, 0.442);
 	width: 35%;
 	display: flex;
 	flex-direction: column;
@@ -39,7 +35,7 @@ body {
 }
 
 .searchContainer {
-	width: 90%;
+  width: 90%;
 	max-width: 500px;
 	align-self: center;
 	color: #fff;
@@ -48,7 +44,7 @@ body {
 }
 
 .searchBar {
-	width: 100%;
+  width: 100%;
 	max-width: 600px;
 	background-color: rgba(2, 2, 2, 0.2) !important;
 	display: flex;
@@ -59,7 +55,7 @@ body {
 }
 
 .searchBar input {
-	background: transparent;
+  background: transparent;
 	flex: 1;
 	border: 0;
 	outline: none;
@@ -70,17 +66,17 @@ body {
 }
 
 ::placeholder {
-	color: white;
+  color: white;
 }
 
 .searchBar button img {
-	width: 35px;
+  width: 35px;
 	margin-left: 0.5%;
 	margin-top: 15%;
 }
 
 .searchBar button {
-	border: 0;
+  border: 0;
 	border-radius: 50%;
 	width: 50px;
 	height: 50px;
@@ -88,8 +84,16 @@ body {
 	cursor: pointer;
 }
 
+.responseErrorMsg {
+  display: none;
+}
+
+.weatherDisplay {
+  display: none;
+}
+
 .weatherIcon {
-	width: 115px;
+  width: 115px;
 	margin-top: 5%;
 }
 

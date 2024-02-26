@@ -1,5 +1,6 @@
 const searchBar = document.getElementById("searchBar");
 const inputText = document.getElementById("inputText");
+const responseErrorMsg = document.querySelector(".responseErrorMsg")
 const weatherDisplay = document.querySelector(".weatherDisplay");
 const weatherIcon = document.getElementById("weatherIcon");
 const temp = document.getElementById("temp");
@@ -11,8 +12,6 @@ const windSpeedIcon = document.getElementById("windSpeedIcon");
 
 const APIKey = "96ae4f0ff15d3b006deaf259d7638b26";
 const APIUrl = "https://api.openweathermap.org/data/2.5/weather?q=";
-
-// https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
 
 inputText.addEventListener("focusin", (e) => {
 	e.target.placeholder = "";
@@ -46,7 +45,7 @@ function getWeather(data) {
 		weatherIcon.src = "assets/weather_icons/sun/sunny&raining.png";
 	} else if (locationWeather == "Mist") {
 		weatherIcon.src = "assets/weather_icons/sun/sunny.png";
-	} 
+	}
 
 	weatherDisplay.style.display = "block";
 
@@ -64,7 +63,15 @@ searchBar.addEventListener("submit", function (e) {
 
 	fetch(fullAPIUrl)
 		.then(function convertToJson(response) {
-			return response.json();
+			if (response.status == "404") {
+        responseErrorMsg.style.display = "block"
+				console.log("response.status code", response.status);
+			} else {
+        if (responseErrorMsg.style.display = "block") {
+          responseErrorMsg.style.display = "None"
+        }
+        return response.json();
+			}
 		})
 		.then(getWeather);
 });
